@@ -433,7 +433,7 @@ PlanetsLib.borrow_music(data.raw["planet"]["fulgora"], vicrox)
 data:extend {{
     type = "technology",
     name = "planet-discovery-vicrox",
-    icons = util.technology_icon_constant_planet("__planet-vicrox__/graphics/planet-vicrox.png"),
+    icons = PlanetsLib.technology_icon_constant_planet("__planet-vicrox__/graphics/planet-vicrox.png", 1024),
     icon_size = 1024,
     essential = true,
     localised_description = {"space-location-description.vicrox"},
