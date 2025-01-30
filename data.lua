@@ -181,7 +181,9 @@ local vicrox =
     label_orientation = 0.55,
     starmap_icon = "__planet-vicrox__/graphics/planet-vicrox.png",
     starmap_icon_size = 1024,
+    order = "ce[vicrox]",
     magnitude = nauvis.magnitude,
+    subgroup = "planets",
     platform_procession_set =
     {
       arrival = {"planet-to-platform-b"},
