@@ -114,7 +114,6 @@ function MapGen_Vicrox()
         ["garballo-mini-dry"] = {},
         ["garballo"] = {},
         ["green-bush-mini"] = {},
-        ["medium-rock"] = {},
         ["small-rock"] = {},
         ["tiny-rock"] = {},
         ["medium-sand-rock"] = {},
@@ -488,7 +487,7 @@ data:extend({
 		icon_size = 64,
 		order = "w-a[vicrox-scrap]",
 		minable = merge(data.raw.resource["scrap"].minable, {
-			mining_time = 0.33,
+			mining_time = 0.25,
 			result = "vicrox-scrap",
 		}),
 		map_color = { 0.18, 0.22, 0.2 },
@@ -541,14 +540,14 @@ data:extend{
     order = "a[trash]-a[trash-recycling]",
     enabled = false,
     auto_recycle = false,
-    energy_required = 0.4,
+    energy_required = 0.5,
     ingredients = {{type = "item", name = "vicrox-scrap", amount = 1}},
     results =
     {
-      {type = "item", name = "ice",                    amount = 1, probability = 0.25, show_details_in_recipe_tooltip = false},
       {type = "item", name = "iron-ore",               amount = 1, probability = 0.20, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "scrap",                  amount = 1, probability = 0.10, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "copper-ore",             amount = 1, probability = 0.10, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "ice",                    amount = 1, probability = 0.175, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "scrap",                  amount = 1, probability = 0.16, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "copper-ore",             amount = 1, probability = 0.15, show_details_in_recipe_tooltip = false},
       {type = "item", name = "coal",                   amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false},
       {type = "item", name = "stone",                  amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
       {type = "item", name = "stone-brick",            amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
@@ -556,6 +555,8 @@ data:extend{
       {type = "item", name = "uranium-ore",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
       {type = "item", name = "raw-fish",               amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
       {type = "item", name = "sulfur",                 amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "holmium-ore",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
+
 
     }
   }
