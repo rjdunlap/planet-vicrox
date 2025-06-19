@@ -25,7 +25,6 @@ function MapGen_Vicrox()
         ["fulgora_islands"] = {frequency = 1.75, size = 1.5, richness = 1.5},
         ["fulgora_cliff"] = {},
         ["trees"] = {},
-        ["rocks"] = {},
         ["starting_area_moisture"] = {},
         ["nauvis_cliff"] = {}
     }
@@ -114,11 +113,6 @@ function MapGen_Vicrox()
         ["garballo-mini-dry"] = {},
         ["garballo"] = {},
         ["green-bush-mini"] = {},
-        ["small-rock"] = {},
-        ["tiny-rock"] = {},
-        ["medium-sand-rock"] = {},
-        ["small-sand-rock"] = {},
-
         ["fulgoran-ruin-tiny"] = {},
         ["fulgoran-gravewort"] = {},
         ["urchin-cactus"] = {},
@@ -141,9 +135,6 @@ function MapGen_Vicrox()
         ["fulgoran-ruin-small"] = { frequency = 2, size = 2, richness = 2},
         ["fulgurite"] = {},
         ["big-fulgora-rock"] = {},
-        ["big-sand-rock"] = {},
-        ["huge-rock"] = {},
-        ["big-rock"] = {},
         }
     }
      
