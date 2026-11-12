@@ -114,7 +114,8 @@ function MapGen_Vicrox()
         ["garballo"] = {},
         ["green-bush-mini"] = {},
         ["fulgoran-ruin-tiny"] = {},
-        ["fulgoran-gravewort"] = {},
+        ["small-fulgoran-gravewort"] = {},
+        ["medium-fulgoran-gravewort"] = {},
         ["urchin-cactus"] = {},
         ["medium-fulgora-rock"] = {},
         ["small-fulgora-rock"] = {},
@@ -516,17 +517,17 @@ data:extend{
     name = "vicrox-scrap-recycling",
     icons = {
       {
-        icon = "__quality__/graphics/icons/recycling.png"
+        icon = "__recycler__/graphics/icons/recycling.png"
       },
       {
         icon = "__space-age__/graphics/icons/scrap.png",
         scale = 0.4
       },
       {
-        icon = "__quality__/graphics/icons/recycling-top.png"
+        icon = "__recycler__/graphics/icons/recycling-top.png"
       }
     },
-    category = "recycling-or-hand-crafting",
+    categories = {"recycling", "hand-crafting"},
     subgroup = "fulgora-processes",
     order = "a[trash]-a[trash-recycling]",
     enabled = false,
@@ -535,23 +536,32 @@ data:extend{
     ingredients = {{type = "item", name = "vicrox-scrap", amount = 1}},
     results =
     {
-      {type = "item", name = "iron-ore",               amount = 1, probability = 0.20, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "ice",                    amount = 1, probability = 0.175, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "scrap",                  amount = 1, probability = 0.16, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "copper-ore",             amount = 1, probability = 0.15, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "coal",                   amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "stone",                  amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "stone-brick",            amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "wooden-chest",           amount = 1, probability = 0.025, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "uranium-ore",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "raw-fish",               amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "sulfur",                 amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
-      {type = "item", name = "holmium-ore",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "iron-ore",               amount = 1, independent_probability = 0.20, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "ice",                    amount = 1, independent_probability = 0.175, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "scrap",                  amount = 1, independent_probability = 0.16, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "copper-ore",             amount = 1, independent_probability = 0.15, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "coal",                   amount = 1, independent_probability = 0.05, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "stone",                  amount = 1, independent_probability = 0.03, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "stone-brick",            amount = 1, independent_probability = 0.03, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "wooden-chest",           amount = 1, independent_probability = 0.025, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "uranium-ore",            amount = 1, independent_probability = 0.01, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "raw-fish",               amount = 1, independent_probability = 0.01, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "sulfur",                 amount = 1, independent_probability = 0.01, show_details_in_recipe_tooltip = false},
+      {type = "item", name = "holmium-ore",            amount = 1, independent_probability = 0.01, show_details_in_recipe_tooltip = false},
 
 
     }
   }
 }
+
+-- Let the vanilla "Scrap recycling productivity" research apply to this scrap recipe as well.
+do
+  local tech = data.raw.technology["scrap-recycling-productivity"]
+  if tech and data.raw.recipe["vicrox-scrap-recycling"] then
+    tech.effects = tech.effects or {}
+    table.insert(tech.effects, {type = "change-recipe-productivity", recipe = "vicrox-scrap-recycling", change = 0.1})
+  end
+end
 
 utils.set_prerequisites("recycling", nil)
 utils.remove_tech("uranium-processing", true, true)
