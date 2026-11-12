@@ -1,5 +1,4 @@
 --data.lua
-local utils = require("__any-planet-start__.utils")
 local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 local planet_catalogue_vulcanus = require("__space-age__.prototypes.planet.procession-catalogue-vulcanus")
 local resource_autoplace = require("resource-autoplace")
@@ -563,7 +562,8 @@ do
   end
 end
 
-utils.set_prerequisites("recycling", nil)
-utils.remove_tech("uranium-processing", true, true)
 
-APS.add_planet{name = "vicrox", filename = "__planet-vicrox__/vicrox.lua", technology = "planet-discovery-vicrox"}
+-- Any Planet Start is optional.
+if mods["any-planet-start"] then
+    APS.add_planet{name = "vicrox", filename = "__planet-vicrox__/vicrox.lua", technology = "planet-discovery-vicrox"}
+end
